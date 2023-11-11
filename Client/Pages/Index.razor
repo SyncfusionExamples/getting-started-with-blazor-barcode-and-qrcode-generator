@@ -1,0 +1,33 @@
+﻿@page "/"
+@using Syncfusion.Blazor.Buttons;
+
+<SfButton OnClick="OnExport">Export</SfButton>
+
+<SfBarcodeGenerator @ref="BarcodeInst" Value="SYNC123"
+                    Type="BarcodeType.Code39"
+                    Height="100px"
+                    Width="200px"
+                    ForeColor="Red">
+    <BarcodeGeneratorDisplayText Text="CODE39-BARCODE"></BarcodeGeneratorDisplayText>
+</SfBarcodeGenerator>
+
+@code {
+    SfBarcodeGenerator BarcodeInst;
+
+    private void OnExport()
+    {
+        BarcodeInst.Export("Syncfusion-image", BarcodeExportType.JPG);
+    }
+}
+
+<SfQRCodeGenerator Value="SYNC123"
+                   Height="100px"
+                   Width="200px"
+                   ForeColor="Red">
+    <QRCodeGeneratorDisplayText Text="Syncfusion"></QRCodeGeneratorDisplayText>
+</SfQRCodeGenerator>
+
+<SfDataMatrixGenerator Value="SYNCUser"
+                       Height="100px"
+                       Width="200px"
+                       ForeColor="Red"></SfDataMatrixGenerator>
